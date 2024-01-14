@@ -1,0 +1,44 @@
+plugins {
+    // id 'java'
+    id 'java-library'
+}
+
+group = 'ru.ivesoft'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+//tasks.register('sourcesJar', Jar) {
+//    group 'build'
+//    dependsOn classes
+//    getArchiveClassifier().set('sources')
+//    from sourceSets.main.allSource
+//}
+//
+//tasks.register('javadocJar', Jar) {
+//    group 'build'
+//    dependsOn javadoc
+//    getArchiveClassifier().set('javadoc')
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
+
+test {
+    useJUnitPlatform()
+}
